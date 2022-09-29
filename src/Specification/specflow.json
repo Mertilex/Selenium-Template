@@ -4,6 +4,5 @@
     {
       "assembly": "Web.Automation"
     }
-  ],
-  "unitTestProvider": "NUnit"
+  ]
 }
