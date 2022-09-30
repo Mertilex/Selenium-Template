@@ -11,4 +11,8 @@
     <PackageReference Include="SpecFlow" Version="3.9.74" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Steps\BeforeScenario\" />
+  </ItemGroup>
+
 </Project>

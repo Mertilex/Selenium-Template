@@ -1,4 +1,5 @@
-﻿Feature: Group of tests related to specific area - Login
+﻿@standardDataSet
+Feature: Group of tests related to specific area - Login
 
 As a User
 I want to be able to log in to the application using different methods
