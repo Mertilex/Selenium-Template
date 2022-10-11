@@ -1,4 +1,5 @@
-﻿using TechTalk.SpecFlow;
+﻿using Configuration;
+using TechTalk.SpecFlow;
 
 namespace Web.Automation.Steps.Login
 {
@@ -14,13 +15,15 @@ namespace Web.Automation.Steps.Login
         [Given(@"The User has role all privileges assigned")]
         public void GivenTheUserHasRoleAllPrivilegesAssigned()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         [Given(@"Login page is displayed")]
         public void GivenLoginPageIsDisplayed()
         {
-            
+            var a = AppSettings.Test; 
+             a = AppSettings.Test; 
+            var b = 0;
         }
 
         [When(@"the User provides login and password")]
