@@ -1,6 +1,6 @@
 ﻿using TechTalk.SpecFlow;
 
-namespace Web.Automation.Steps.BeforeScenario;
+namespace StepsImplementation.Steps.BeforeScenario;
 
 /// <summary>
 /// W tej klasie umieszczaj metody, które mają zostać wywołane

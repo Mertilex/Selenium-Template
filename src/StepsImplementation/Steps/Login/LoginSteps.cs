@@ -1,7 +1,8 @@
 ﻿using Configuration;
 using TechTalk.SpecFlow;
+using TestBase;
 
-namespace Web.Automation.Steps.Login
+namespace StepsImplementation.Steps.Login
 {
     /// <summary>
     /// To jest przykładowa klasa, która ma na celu pokazanie w jaki sposób
@@ -21,9 +22,7 @@ namespace Web.Automation.Steps.Login
         [Given(@"Login page is displayed")]
         public void GivenLoginPageIsDisplayed()
         {
-            var a = AppSettings.Test; 
-             a = AppSettings.Test; 
-            var b = 0;
+            var a = DefaultChromeDriver.ChromeDriver;
         }
 
         [When(@"the User provides login and password")]

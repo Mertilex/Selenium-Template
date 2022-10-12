@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Tools;
+using Tools.Converters;
 
 namespace Configuration
 {
@@ -6,7 +8,15 @@ namespace Configuration
     {
         private static readonly IConfigurationRoot Config;
 
-        public static string Test => Config["Key0"];
+        public static bool EnableWebDriverLogging => Config["EnableWebDriverLogging"].ToBool();
+
+        public static string ScreenshotsDirectory => Config["ScreenshotsDirectory"];
+
+        public static bool EnableVerboseLogging => Config["EnableVerboseLogging"].ToBool();
+        
+        public static int WebDriverTimeout => Config["WebDriverTimeout"].ToInt();
+
+        public static List<string> WebDriverChromeOptions => Config.GetSection("WebDriverChromeOptions").Get<List<string>>();
 
         static AppSettings()
         {
@@ -15,5 +25,5 @@ namespace Configuration
                     .AddJsonFile("appsettings.json", optional: true, reloadOnChange: false)
                     .Build();
         }
-    }
+    ]
 }
