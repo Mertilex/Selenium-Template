@@ -1,4 +1,5 @@
 ﻿using TechTalk.SpecFlow;
+using TestBase;
 
 namespace StepsImplementation.Steps.BeforeScenario;
 
@@ -9,7 +10,18 @@ namespace StepsImplementation.Steps.BeforeScenario;
 [Binding]
 public class BeforeScenarioSteps
 {
-    [BeforeScenario(tags: "standardDataSet", Order = 1)]
+    public BeforeScenarioSteps()
+    {
+        WebBrowserController wbc = new WebBrowserController(); //TODO: should it start driver implicitly?
+    }
+
+    [BeforeScenario(tags: "openBrowser", Order = 1)]
+    public void BeforeScenarioOpenBrowser()
+    {
+        var a = 0;
+    }
+
+    [BeforeScenario(tags: "standardDataSet", Order = 2)]
     public void BeforeScenarioStandardDataSetTag()
     {
         /*

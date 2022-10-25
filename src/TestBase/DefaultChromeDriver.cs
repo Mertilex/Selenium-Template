@@ -8,26 +8,31 @@ namespace TestBase
 {
     public static class DefaultChromeDriver
     {
-        private static IWebDriver chromeDriver;
-        private static ChromeDriverService chromeDriverService;
+        private static IWebDriver _chromeDriver;
+        private static ChromeDriverService _chromeDriverService;
+
+        static DefaultChromeDriver()
+        {
+            if (_chromeDriver != null)
+            {
+                return; 
+            }
+            
+            _chromeDriverService = ChromeDriverService.CreateDefaultService();
+            if (AppSettings.EnableWebDriverLogging)
+            {
+                _chromeDriverService.LogPath = WebDriverLogFileFullPath();
+                _chromeDriverService.EnableVerboseLogging = AppSettings.EnableVerboseLogging;
+            }
+
+            CreateChromeDriver();
+        }
 
         public static IWebDriver ChromeDriver
         {
             get
             {
-                if (chromeDriver == null)
-                {
-                    chromeDriverService = ChromeDriverService.CreateDefaultService();
-                    if (AppSettings.EnableWebDriverLogging)
-                    {
-                        chromeDriverService.LogPath = WebDriverLogFileFullPath();
-                        chromeDriverService.EnableVerboseLogging = AppSettings.EnableVerboseLogging;
-                    }
-
-                    CreateChromeDriver();
-                }
-
-                return chromeDriver;
+                return _chromeDriver;
             }
         }
 
@@ -53,23 +58,18 @@ namespace TestBase
 
         private static void CreateChromeDriver()
         {
-
             var chromeOptions = new ChromeOptions();
-            chromeOptions.AddArguments(AppSettings.WebDriverChromeOptions);//"disable-popup-blocking", "disable-infobars");
+            chromeOptions.AddArguments(AppSettings.WebDriverChromeOptions);
             //chromeOptions.BinaryLocation = AppSettings.BrowserExePath;
 
-            //chromeDriver = new ChromeDriver(
-            //    chromeDriverService, 
-            //    chromeOptions, 
-            //    TimeSpan.FromSeconds(AppSettings.WebDriverTimeout)
-            //    );
+            _chromeDriver = new ChromeDriver(
+                _chromeDriverService,
+                chromeOptions,
+                TimeSpan.FromSeconds(AppSettings.WebDriverTimeout)
+                );
 
-            //chromeDriver.Manage().Window.Position = new Point(0, 0);
-            //chromeDriver.Manage().Window.Size = AppSettings.BrowserWindowSize;
-
-            //if (!string.IsNullOrEmpty(AppSettings.BrowserExePath))
-            //    Console.WriteLine($"[WebDriver] Using browser at path: {AppSettings.BrowserExePath}");
-            //Console.WriteLine($"[WebDriver] Setting browser's window to: {AppSettings.BrowserWindowSize.Width}x{AppSettings.BrowserWindowSize.Height}");
+            _chromeDriver.Manage().Window.Position = new Point(0, 0);
+            _chromeDriver.Manage().Window.Size = AppSettings.BrowserWindowSize;
         }
     }
 }

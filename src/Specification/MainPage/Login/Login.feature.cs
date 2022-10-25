@@ -22,13 +22,15 @@ namespace Specification.MainPage.Login
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Group of tests related to specific area - Login")]
     [NUnit.Framework.CategoryAttribute("standardDataSet")]
+    [NUnit.Framework.CategoryAttribute("openBrowser")]
     public partial class GroupOfTestsRelatedToSpecificArea_LoginFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "standardDataSet"};
+                "standardDataSet",
+                "openBrowser"};
         
 #line 1 "Login.feature"
 #line hidden

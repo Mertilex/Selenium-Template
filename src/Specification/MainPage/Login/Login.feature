@@ -1,4 +1,4 @@
-﻿@standardDataSet
+﻿@standardDataSet @openBrowser
 Feature: Group of tests related to specific area - Login
 
 As a User
