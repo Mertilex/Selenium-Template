@@ -24,6 +24,8 @@ namespace Configuration
 
         public static string WebDriverType => Config["WebDriverType"];
 
+        public static string WebDriverLogFileWithExtension => Config["WebDriverLogFileWithExtension"];
+
         static AppSettings()
         {
             Config = new ConfigurationBuilder()

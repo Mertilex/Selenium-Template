@@ -22,7 +22,7 @@ namespace StepsImplementation.Steps.Login
         [Given(@"Login page is displayed")]
         public void GivenLoginPageIsDisplayed()
         {
-            //var a = DefaultChromeDriver.ChromeDriver;
+            //var a = ChromeDriverProvider.ChromeDriver;
         }
 
         [When(@"the User provides login and password")]

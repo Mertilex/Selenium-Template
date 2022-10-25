@@ -10,15 +10,17 @@ namespace StepsImplementation.Steps.BeforeScenario;
 [Binding]
 public class BeforeScenarioSteps
 {
+    private readonly WebBrowserController _wbc;
+
     public BeforeScenarioSteps()
     {
-        WebBrowserController wbc = new WebBrowserController(); //TODO: should it start driver implicitly?
+        _wbc = new WebBrowserController();
     }
 
     [BeforeScenario(tags: "openBrowser", Order = 1)]
     public void BeforeScenarioOpenBrowser()
     {
-        var a = 0;
+        _wbc.InitializeWebDriver();
     }
 
     [BeforeScenario(tags: "standardDataSet", Order = 2)]
@@ -31,5 +33,12 @@ public class BeforeScenarioSteps
          * pustą bazę i musisz każdorazowo dodać do niej niezbędne dane.
          * Zrób to tutaj.
          */
+    }
+
+    //TODO: move this to separate class
+    [AfterScenario]
+    public void AfterScenarioTag()
+    {
+        _wbc.TerminateWebDriver();
     }
 }
