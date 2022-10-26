@@ -7,13 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Selenium.Support" Version="4.5.0" />
-    <PackageReference Include="SpecFlow" Version="3.9.74" />
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Steps\BeforeScenario\" />
+    <PackageReference Include="Selenium.Support" Version="4.5.1" />
   </ItemGroup>
 
   <ItemGroup>

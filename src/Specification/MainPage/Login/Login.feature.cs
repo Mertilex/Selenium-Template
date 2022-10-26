@@ -22,13 +22,15 @@ namespace Specification.MainPage.Login
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Group of tests related to specific area - Login")]
     [NUnit.Framework.CategoryAttribute("standardDataSet")]
+    [NUnit.Framework.CategoryAttribute("openBrowser")]
     public partial class GroupOfTestsRelatedToSpecificArea_LoginFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "standardDataSet"};
+                "standardDataSet",
+                "openBrowser"};
         
 #line 1 "Login.feature"
 #line hidden
@@ -118,6 +120,45 @@ this.FeatureBackground();
  testRunner.Then("the User is logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 17
+ testRunner.And("Main page of the application is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User is able to log in to the application using login only")]
+        public void UserIsAbleToLogInToTheApplicationUsingLoginOnly()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User is able to log in to the application using login only", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 20
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 8
+this.FeatureBackground();
+#line hidden
+#line 21
+ testRunner.Given("Login page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 22
+ testRunner.When("the User provides login and password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 23
+ testRunner.And("the User clicks on LogIn button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 24
+ testRunner.Then("the User is logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 25
  testRunner.And("Main page of the application is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
