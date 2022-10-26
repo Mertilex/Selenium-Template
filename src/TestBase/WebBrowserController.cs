@@ -1,5 +1,6 @@
 ﻿using Configuration;
 using OpenQA.Selenium;
+using TestBase.WebDriverProviders;
 
 namespace TestBase;
 
@@ -9,22 +10,30 @@ public class WebBrowserController
 
     public void InitializeWebDriver()
     {
+        IWebDriverProvider provider;
+
         switch (AppSettings.WebDriverType)
         {
             case "Chrome":
-                _webDriver = ChromeDriverProvider.GetChromeDriver();
+                provider = new ChromeDriverProvider();
+                break;
+
+            case "Firefox":
+                provider = new FirefoxDriverProvider();
                 break;
 
             default:
                 throw new ArgumentException($"Unsupported Web Driver type: {AppSettings.WebDriverType}.");
         }
+
+        _webDriver = provider.GetDriver();
     }
 
     public void TerminateWebDriver()
     {
         if (_webDriver == null)
         {
-            throw new ArgumentNullException($"Web Driver cannot be null here.");
+            throw new ArgumentNullException("Web Driver cannot be null here.");
         }
 
         _webDriver.Close();

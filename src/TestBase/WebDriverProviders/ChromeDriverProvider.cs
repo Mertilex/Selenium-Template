@@ -1,13 +1,13 @@
-﻿using Configuration;
-using OpenQA.Selenium.Chrome;
+﻿using System.Drawing;
+using Configuration;
 using OpenQA.Selenium;
-using System.Drawing;
+using OpenQA.Selenium.Chrome;
 
-namespace TestBase
+namespace TestBase.WebDriverProviders
 {
-    public static class ChromeDriverProvider
+    public class ChromeDriverProvider : WebDriverProviderBase, IWebDriverProvider
     {
-        public static IWebDriver GetChromeDriver()
+        public IWebDriver GetDriver()
         {
             ChromeDriverService chromeDriverService;
             ChromeDriver chromeDriver;
@@ -41,7 +41,11 @@ namespace TestBase
         private static ChromeOptions PrepareChromeOptions()
         {
             var chromeOptions = new ChromeOptions();
-            chromeOptions.AddArguments(AppSettings.WebDriverChromeOptions);
+
+            if (AppSettings.WebDriverChromeOptions != null && AppSettings.WebDriverChromeOptions.Count > 0)
+            {
+                chromeOptions.AddArguments(AppSettings.WebDriverChromeOptions);
+            }
             //chromeOptions.BinaryLocation = AppSettings.BrowserExePath;
 
             return chromeOptions;
@@ -55,13 +59,7 @@ namespace TestBase
                 TimeSpan.FromSeconds(AppSettings.WebDriverTimeout)
             );
         }
-
-        private static void SetWindowPositionAndSize(ChromeDriver chromeDriver)
-        {
-            chromeDriver.Manage().Window.Position = new Point(0, 0);
-            chromeDriver.Manage().Window.Size = AppSettings.BrowserWindowSize;
-        }
-
+        
         private static void CreateScreenshotDirectory(string logPath)
         {
             if (!Directory.Exists(logPath))

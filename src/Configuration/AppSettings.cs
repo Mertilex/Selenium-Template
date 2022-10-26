@@ -20,6 +20,9 @@ namespace Configuration
         public static List<string> WebDriverChromeOptions =>
             Config.GetSection("WebDriverChromeOptions").Get<List<string>>();
 
+        public static List<string> WebDriverFirefoxOptions =>
+            Config.GetSection("WebDriverFirefoxOptions").Get<List<string>>();
+
         public static Size BrowserWindowSize => Config["BrowserWindowSize"].ToSize();
 
         public static string WebDriverType => Config["WebDriverType"];
