@@ -1,13 +1,13 @@
-﻿using Configuration;
+﻿using System.Drawing;
+using Configuration;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
-using System.Drawing;
 
-namespace TestBase;
+namespace TestBase.WebDriverProviders;
 
-public class FirefoxDriverProvider
+public class FirefoxDriverProvider : WebDriverProviderBase, IWebDriverProvider
 {
-    public static IWebDriver GetFireFoxDriver()
+    public IWebDriver GetDriver()
     {
         FirefoxDriverService firefoxDriverService;
         FirefoxDriver firefoxDriver;
@@ -44,11 +44,5 @@ public class FirefoxDriverProvider
         //firefoxOptions.BinaryLocation = AppSettings.BrowserExePath;
 
         return firefoxOptions;
-    }
-
-    private static void SetWindowPositionAndSize(FirefoxDriver firefoxDriver)
-    {
-        firefoxDriver.Manage().Window.Position = new Point(0, 0);
-        firefoxDriver.Manage().Window.Size = AppSettings.BrowserWindowSize;
     }
 }
