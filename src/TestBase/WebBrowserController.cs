@@ -15,6 +15,10 @@ public class WebBrowserController
                 _webDriver = ChromeDriverProvider.GetChromeDriver();
                 break;
 
+            case "Firefox":
+                _webDriver = FirefoxDriverProvider.GetFireFoxDriver();
+                break;
+
             default:
                 throw new ArgumentException($"Unsupported Web Driver type: {AppSettings.WebDriverType}.");
         }

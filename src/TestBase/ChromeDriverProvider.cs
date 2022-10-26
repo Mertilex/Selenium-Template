@@ -41,7 +41,11 @@ namespace TestBase
         private static ChromeOptions PrepareChromeOptions()
         {
             var chromeOptions = new ChromeOptions();
-            chromeOptions.AddArguments(AppSettings.WebDriverChromeOptions);
+
+            if (AppSettings.WebDriverChromeOptions != null && AppSettings.WebDriverChromeOptions.Count > 0)
+            {
+                chromeOptions.AddArguments(AppSettings.WebDriverChromeOptions);
+            }
             //chromeOptions.BinaryLocation = AppSettings.BrowserExePath;
 
             return chromeOptions;
