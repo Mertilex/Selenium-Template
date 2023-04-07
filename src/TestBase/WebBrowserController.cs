@@ -29,6 +29,12 @@ public class WebBrowserController
         _webDriver = provider.GetDriver();
     }
 
+    public void GoToUrl()
+    {
+        _webDriver.Navigate().GoToUrl("http:\\www.google.pl");
+        var a = 0;
+    }
+
     public void TerminateWebDriver()
     {
         if (_webDriver == null)

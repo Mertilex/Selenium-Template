@@ -21,6 +21,8 @@ public class BeforeScenarioSteps
     public void BeforeScenarioOpenBrowser()
     {
         _wbc.InitializeWebDriver();
+
+        _wbc.GoToUrl();
     }
 
     [BeforeScenario(tags: "standardDataSet", Order = 2)]
