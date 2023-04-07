@@ -11,7 +11,7 @@ namespace StepsImplementation.Steps.Login
     /// Te testy nigdy nie będą implementowane do poziomu działających testów.
     /// </summary>
     [Binding]
-    public class LoginSteps
+    public class LoginSteps : WebBrowserBase
     {
         [Given(@"The User has role all privileges assigned")]
         public void GivenTheUserHasRoleAllPrivilegesAssigned()
@@ -22,7 +22,7 @@ namespace StepsImplementation.Steps.Login
         [Given(@"Login page is displayed")]
         public void GivenLoginPageIsDisplayed()
         {
-            //var a = ChromeDriverProvider.ChromeDriver;
+            NavigateToLoginPage();
         }
 
         [When(@"the User provides login and password")]
@@ -47,6 +47,11 @@ namespace StepsImplementation.Steps.Login
         public void MainPageOfTheApplicationIsDisplayed()
         {
             var a = 0;
+        }
+
+        private static void NavigateToLoginPage()
+        {
+            GoToUrl("http:\\www.google.pl");
         }
     }
 }
