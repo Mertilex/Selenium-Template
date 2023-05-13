@@ -1,5 +1,16 @@
 ﻿namespace StepsImplementation.PageMaps;
 
+/// <summary>
+/// Ten plik jest prawdowpodobnie do wywalenia w całości
+/// </summary>
+
+
+
+
+
+
+
+
 //klasa z mapą strony
 public partial class test1
 {

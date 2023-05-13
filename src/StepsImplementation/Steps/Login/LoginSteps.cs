@@ -1,4 +1,5 @@
 ﻿using Configuration;
+using StepsImplementation.Containers;
 using TechTalk.SpecFlow;
 using TestBase;
 
@@ -8,7 +9,8 @@ namespace StepsImplementation.Steps.Login
     /// To jest przykładowa klasa, która ma na celu pokazanie w jaki sposób
     /// wyglądają powiązania (Bindingi) ze stepami z plików *.feature
     /// z projektu Specification.
-    /// Te testy nigdy nie będą implementowane do poziomu działających testów.
+    /// Trzymaj tutaj tylko wysokopoziomowe implementacje bindingów, np.: SetUserPassword()
+    /// Implementację właściwą trzymaj w folderze Containers
     /// </summary>
     [Binding]
     public class LoginSteps : WebBrowserBase
@@ -28,6 +30,9 @@ namespace StepsImplementation.Steps.Login
         [When(@"the User provides login and password")]
         public void TheUserProvidesLoginAndPassword()
         {
+            LoginPage lp = new LoginPage();
+            lp.SetLoginTextBox("random value");
+
             /*
              *
 using System;
