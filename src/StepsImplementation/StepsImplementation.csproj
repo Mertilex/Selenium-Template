@@ -13,8 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Containers\Map\Attributes\" />
-    <Folder Include="PageMaps\" />
     <Folder Include="Steps\BeforeScenario\" />
   </ItemGroup>
 

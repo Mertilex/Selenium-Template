@@ -10,15 +10,13 @@ namespace StepsImplementation.Steps.BeforeScenario;
 [Binding]
 public class BeforeScenarioSteps : WebBrowserBase
 {
-    public BeforeScenarioSteps()
+    public BeforeScenarioSteps() //: base(container)
     {
-        MainPageSteps.NavigateToUrl();
     }
 
     [BeforeScenario(tags: "openBrowser", Order = 1)]
     public void BeforeScenarioOpenBrowser()
     {
-        GoToUrl();
     }
 
     [BeforeScenario(tags: "standardDataSet", Order = 2)]

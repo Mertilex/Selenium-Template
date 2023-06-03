@@ -25,7 +25,6 @@ public abstract class WebBrowserBase
         //HandleUnsavedChanges(handleUnsavedChanges);
         //DisableCssAnimations();
         //itd.
-        var a = 0;
     }
 
     public static void TerminateWebDriver()
@@ -41,6 +40,9 @@ public abstract class WebBrowserBase
 
     private void InitializeWebDriver()
     {
+        if (WebDriver != null)
+            return;
+
         IWebDriverProvider provider;
 
         switch (AppSettings.WebDriverType)
