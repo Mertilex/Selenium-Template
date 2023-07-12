@@ -8,19 +8,15 @@ namespace StepsImplementation.Steps.BeforeScenario;
 /// przed każdym testem, który odpalasz.
 /// </summary>
 [Binding]
-public class BeforeScenarioSteps
+public class BeforeScenarioSteps : WebBrowserBase
 {
-    private readonly WebBrowserController _wbc;
-
-    public BeforeScenarioSteps()
+    public BeforeScenarioSteps() //: base(container)
     {
-        _wbc = new WebBrowserController();
     }
 
     [BeforeScenario(tags: "openBrowser", Order = 1)]
     public void BeforeScenarioOpenBrowser()
     {
-        _wbc.InitializeWebDriver();
     }
 
     [BeforeScenario(tags: "standardDataSet", Order = 2)]
@@ -39,6 +35,6 @@ public class BeforeScenarioSteps
     [AfterScenario]
     public void AfterScenarioTag()
     {
-        _wbc.TerminateWebDriver();
+        TerminateWebDriver();
     }
 }

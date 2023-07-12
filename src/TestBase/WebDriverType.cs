@@ -2,5 +2,5 @@
 
 public enum WebDriverType
 {
-    Chrome
+    Chrome //TODO: Chyba nieużywane
 }

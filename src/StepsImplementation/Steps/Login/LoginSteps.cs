@@ -1,6 +1,6 @@
-﻿using Configuration;
-using TechTalk.SpecFlow;
+﻿using TechTalk.SpecFlow;
 using TestBase;
+using TestBase.Containers;
 
 namespace StepsImplementation.Steps.Login
 {
@@ -8,11 +8,16 @@ namespace StepsImplementation.Steps.Login
     /// To jest przykładowa klasa, która ma na celu pokazanie w jaki sposób
     /// wyglądają powiązania (Bindingi) ze stepami z plików *.feature
     /// z projektu Specification.
-    /// Te testy nigdy nie będą implementowane do poziomu działających testów.
+    /// Trzymaj tutaj tylko wysokopoziomowe implementacje bindingów, np.: SetUserPassword()
+    /// Implementację właściwą trzymaj w folderze Containers
     /// </summary>
     [Binding]
-    public class LoginSteps
+    public class LoginSteps : WebBrowserBase
     {
+        public LoginSteps() //: base(container)
+        {
+        }
+
         [Given(@"The User has role all privileges assigned")]
         public void GivenTheUserHasRoleAllPrivilegesAssigned()
         {
@@ -22,13 +27,14 @@ namespace StepsImplementation.Steps.Login
         [Given(@"Login page is displayed")]
         public void GivenLoginPageIsDisplayed()
         {
-            //var a = ChromeDriverProvider.ChromeDriver;
+            NavigateToLoginPage();
         }
 
         [When(@"the User provides login and password")]
         public void TheUserProvidesLoginAndPassword()
         {
-            var a = 0;
+            var lp = new LoginPage();
+            lp.SetLoginTextBox("random value");
         }
 
         [When(@"the User clicks on LogIn button")]
@@ -47,6 +53,11 @@ namespace StepsImplementation.Steps.Login
         public void MainPageOfTheApplicationIsDisplayed()
         {
             var a = 0;
+        }
+
+        private static void NavigateToLoginPage()
+        {
+            GoToUrl("https://duckduckgo.com/"); //TODO: move it to settings
         }
     }
 }
