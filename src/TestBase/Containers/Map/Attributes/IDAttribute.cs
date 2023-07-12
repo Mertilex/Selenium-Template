@@ -1,4 +1,4 @@
-﻿namespace StepsImplementation.Containers.Map.Attributes;
+﻿namespace TestBase.Containers.Map.Attributes;
 
 public class IDAttribute : Attribute
 {

@@ -1,6 +1,4 @@
-﻿using TestBase;
-
-namespace StepsImplementation.Containers;
+﻿namespace TestBase.Containers;
 
 public partial class LoginPage : WebPageBase
 {

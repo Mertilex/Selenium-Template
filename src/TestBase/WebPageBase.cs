@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
-using StepsImplementation.Containers.Map.Attributes;
 using System.Reflection;
-using StepsImplementation.Containers;
+using TestBase.Containers.Map.Attributes;
 using TestBase.Interfaces;
 
 namespace TestBase;

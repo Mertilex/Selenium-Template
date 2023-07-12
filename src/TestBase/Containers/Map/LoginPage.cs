@@ -1,8 +1,8 @@
 ﻿using OpenQA.Selenium;
-using StepsImplementation.Containers.Map.Attributes;
+using TestBase.Containers.Map.Attributes;
 using TestBase.Interfaces;
 
-namespace StepsImplementation.Containers;
+namespace TestBase.Containers; //It has to be the same namespace as for other partial classes
 
 public partial class LoginPage : IPageMap
 {
