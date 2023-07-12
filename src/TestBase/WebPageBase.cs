@@ -16,7 +16,7 @@ public abstract class WebPageBase : WebBrowserBase
         foreach (var component in pageComponents)
         {
             var idAttribute = component.GetCustomAttribute<IDAttribute>();
-            var xpathAttribute = component.GetCustomAttribute<XPathAttribute>(); //TODO: what if Xpath does not exist?
+            var xpathAttribute = component.GetCustomAttribute<XPathAttribute>();
 
             ValidateAttributes(idAttribute, xpathAttribute, component.Name);
 
