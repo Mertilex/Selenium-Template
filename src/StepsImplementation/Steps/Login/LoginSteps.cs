@@ -33,9 +33,8 @@ namespace StepsImplementation.Steps.Login
         [When(@"the User provides login and password")]
         public void TheUserProvidesLoginAndPassword()
         {
-            LoginPage lp = new LoginPage();
+            var lp = new LoginPage();
             lp.SetLoginTextBox("random value");
-            
         }
 
         [When(@"the User clicks on LogIn button")]

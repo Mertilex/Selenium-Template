@@ -4,6 +4,9 @@ using TestBase.WebDriverProviders;
 
 namespace TestBase;
 
+/// <summary>
+/// Dostarcza podstawowe funkcjonalności do obsługi przeglądarki.
+/// </summary>
 public abstract class WebBrowserBase
 {
     //TODO: Chyba to może być protected lub nawet private
