@@ -7,35 +7,53 @@ using TestBase.Interfaces;
 namespace TestBase;
 
 /// <summary>
-/// Służy do dostarczenia funkcjonalności które pozowolą na inicjalizację elementów na stronie.
+/// Służy do dostarczenia funkcjonalności, które pozowolą na inicjalizację elementów na stronie.
 /// </summary>
 public abstract class WebPageBase : WebBrowserBase
 {
     protected void InitElements(IPageMap pageMap)
     {
-        var properties = pageMap.GetType().GetProperties(); //TODO: fix this
-        foreach (var property in properties)
+        var pageComponents = GetAllPageComponents(pageMap);
+        foreach (var component in pageComponents)
         {
-            var idAttribute = property.GetCustomAttribute<IDAttribute>();
-            var xpathAttribute = property.GetCustomAttribute<XPathAttribute>();
+            var idAttribute = component.GetCustomAttribute<IDAttribute>();
+            var xpathAttribute = component.GetCustomAttribute<XPathAttribute>(); //TODO: what if Xpath does not exist?
 
-            if (idAttribute != null && xpathAttribute != null)
-            {
-                throw new Exception($"Property '{property.Name}' cannot have both ID and XPath attributes.");
-            }
+            ValidateAttributes(idAttribute, xpathAttribute, component.Name);
 
             if (idAttribute != null)
             {
                 var element = WebDriver.FindElement(By.Id(idAttribute.ID));
-                property.SetValue(this, element);
-                //continue;
+                component.SetValue(this, element);
+                
+                continue;
             }
-            else if (xpathAttribute != null)
+            
+            if (xpathAttribute != null)
             {
                 var element = WebDriver.FindElement(By.XPath(xpathAttribute.XPath));
-                property.SetValue(this, element);
+                component.SetValue(this, element);
+
+                continue;
             }
         }
     }
 
+    private static void ValidateAttributes(IDAttribute? idAttribute, XPathAttribute? xpathAttribute, string componentName)
+    {
+        if (idAttribute == null && xpathAttribute == null)
+        {
+            throw new Exception($"Property related to the following component: '{componentName}' must have at least one attribute.");
+        }
+
+        if (idAttribute != null && xpathAttribute != null)
+        {
+            throw new Exception($"Property related to the following component: '{componentName}' cannot have both ID and XPath attributes.");
+        }
+    }
+
+    private static IEnumerable<PropertyInfo> GetAllPageComponents(IPageMap pageMap)
+    {
+        return pageMap.GetType().GetProperties();
+    }
 }
