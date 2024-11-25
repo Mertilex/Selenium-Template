@@ -19,15 +19,11 @@ public abstract class WebBrowserBase
 
     public static void GoToUrl(string url)
     {
-        /*
-         * Ta sama metoda jest w klasach które dziedziczą po tej klasie. W tym miejscu powinna być dokładna implementacja akcji navigate z uwzględnieniem Retry, SaveUnhandledChanges, ClosePopups, itd. W miejscach gdzie dziedziczysz po klasie powinno być proste nvigate i tyle. Bez dbania o szczegóły.
-         *
-         */
         WebDriver.Navigate().GoToUrl(url);
         //NavigateWithRetry(targetUri);
         //HandleUnsavedChanges(handleUnsavedChanges);
         //DisableCssAnimations();
-        //itd.
+        //etc.
     }
 
     public static void TerminateWebDriver()

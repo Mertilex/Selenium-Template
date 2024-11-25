@@ -5,11 +5,7 @@ using TestBase.Containers;
 namespace StepsImplementation.Steps.Login
 {
     /// <summary>
-    /// To jest przykładowa klasa, która ma na celu pokazanie w jaki sposób
-    /// wyglądają powiązania (Bindingi) ze stepami z plików *.feature
-    /// z projektu Specification.
-    /// Trzymaj tutaj tylko wysokopoziomowe implementacje bindingów, np.: SetUserPassword()
-    /// Implementację właściwą trzymaj w folderze Containers
+    /// Example class that shows correlation between [Binding] and steps in *.feature files.
     /// </summary>
     [Binding]
     public class LoginSteps : WebBrowserBase
