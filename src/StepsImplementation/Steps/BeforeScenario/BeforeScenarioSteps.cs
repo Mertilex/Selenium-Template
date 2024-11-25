@@ -4,8 +4,8 @@ using TestBase;
 namespace StepsImplementation.Steps.BeforeScenario;
 
 /// <summary>
-/// W tej klasie umieszczaj metody, które mają zostać wywołane
-/// przed każdym testem, który odpalasz.
+/// Binding class that contains methods that should 
+/// be executed before each test in given conditions
 /// </summary>
 [Binding]
 public class BeforeScenarioSteps : WebBrowserBase
@@ -23,11 +23,8 @@ public class BeforeScenarioSteps : WebBrowserBase
     public void BeforeScenarioStandardDataSetTag()
     {
         /*
-         * To jest dobre miejsce żeby dodać takie akcjie jak wypełnianie
-         * bazy danych danymi niezbędnymi na potrzeby każdego testu.
-         * Jest to niezmiernie istotne jeśli za każdym razem deployujesz
-         * pustą bazę i musisz każdorazowo dodać do niej niezbędne dane.
-         * Zrób to tutaj.
+         This is a place where setup action should take place. 
+         E.g.: populate empty DB with test data.
          */
     }
 

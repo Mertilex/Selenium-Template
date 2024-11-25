@@ -6,7 +6,7 @@ using TestBase.Interfaces;
 namespace TestBase;
 
 /// <summary>
-/// Służy do dostarczenia funkcjonalności, które pozowolą na inicjalizację elementów na stronie.
+/// Ensures that attributes are initialized to be used in communication with the page
 /// </summary>
 public abstract class WebPageBase : WebBrowserBase
 {
